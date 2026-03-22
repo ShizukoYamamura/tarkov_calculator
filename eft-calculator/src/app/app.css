@@ -1,0 +1,244 @@
+/* ============================================
+   Tarkov Style Calculator CSS
+   - 渋いミリタリー、ダーク、高コントラスト
+============================================ */
+
+/* 全体のコンテナ */
+.calculator-container {
+  max-width: 900px;
+  margin: 30px auto;
+  /* 渋いダークグレーの背景 */
+  background-color: #0c0c0c;
+  /* 無骨な鉄板のようなボーダー */
+  border: 2px solid #3a3a3a;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+  padding: 0; /* ヘッダーを端まで広げるため */
+  overflow: hidden;
+  border-radius: 4px; /* タルコフUIは角丸が少ない */
+  
+  /* フォントの設定 (もし Google Fonts が使えれば PT Sans Narrow がおすすめですが、一旦標準で) */
+  font-family: 'PT Sans Narrow', sans-serif;
+  color: #bdc3c7; /* 少し暗めの白 */
+}
+
+/* ロード中の表示 */
+.loading-screen {
+  text-align: center;
+  padding: 100px 20px;
+  background-color: #111;
+}
+
+.loading-screen h2 {
+  color: #d2921b; /* タルコフの警告・強調オレンジ */
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* --- ヘッダーエリア --- */
+header {
+  /* 少しオリーブがかったダークグリーン */
+  background-color: #1a2016;
+  padding: 15px 25px;
+  border-bottom: 2px solid #3a3a3a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #ecf0f1; /* メインの白 */
+  letter-spacing: 1.5px;
+  text-transform: uppercase; /* 大文字固定 */
+  
+  /* 少し文字にシャドウを入れてミリタリー感を出す */
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+}
+
+/* --- 選択エリア (アーマーと弾薬) --- */
+.selection-area {
+  display: flex;
+  gap: 0; /* パネル同士を密着させる */
+  border-bottom: 2px solid #3a3a3a;
+}
+
+.panel {
+  flex: 1;
+  padding: 25px;
+  background-color: #111; /* パネル内は少し暗く */
+}
+
+/* 盾と銃のアイコンパネルを分ける線 */
+.armor-panel {
+  border-right: 2px solid #3a3a3a;
+}
+
+.panel h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.2em;
+  color: #d2921b; /* 項目名はオレンジ */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* プルダウン (Select) のタルコフ化 */
+select {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1.1em;
+  /* 暗いミリタリーグリーン */
+  background-color: #1a2016;
+  color: #ecf0f1;
+  border: 1px solid #444;
+  border-radius: 2px;
+  cursor: pointer;
+  appearance: none; /* デフォルトの矢印を消す */
+  
+  /* カスタムの矢印 (簡易的にCSSで作成) */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ecf0f1' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+select:hover {
+  background-color: #232c1e;
+  border-color: #555;
+}
+
+select:focus {
+  outline: none;
+  border-color: #d2921b; /* フォーカス時はオレンジ */
+}
+
+/* プルダウンの中の選択肢 (OS依存ですが、できるだけ暗く) */
+option {
+  background-color: #111;
+  color: #ecf0f1;
+  padding: 10px;
+}
+
+/* --- 結果表示エリア --- */
+.result-area {
+  display: flex;
+  background-color: #0c0c0c;
+  padding: 0;
+}
+
+.result-card {
+  flex: 1;
+  padding: 30px;
+  text-align: center;
+  /* タルコフのインベントリのマス目のような背景 */
+  background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* 初弾貫通確率のカード */
+.chance-card {
+  border-right: 2px solid #3a3a3a;
+}
+
+.result-card h3 {
+  margin-top: 0;
+  font-size: 1.1em;
+  color: #888; /* ラベルは暗めに */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* 大きな数字 (確率と弾数) */
+.chance-text {
+  font-size: 4em;
+  font-weight: bold;
+  margin: 15px 0;
+  line-height: 1;
+  text-shadow: 0 0 15px rgba(0,0,0,0.5); /* 文字の視認性確保 */
+}
+
+.ttk-text {
+  font-size: 3em;
+  font-weight: bold;
+  color: #e74c3c; /* 弾数はダメージ色(赤) */
+  margin: 15px 0;
+  line-height: 1;
+}
+
+/* 貫通不可時の小さいテキスト */
+.no-pen-text {
+  font-size: 1.5em;
+  color: #666;
+  font-weight: normal;
+}
+
+/* --- レスポンシブ対応 (スマホ・タブレット用) --- */
+@media (max-width: 768px) {
+  .calculator-container {
+    margin: 10px; /* 余白を削る */
+    border-width: 1px;
+  }
+
+  header {
+    padding: 10px 15px;
+  }
+
+  header h1 {
+    font-size: 1.4em; /* 文字を少し小さく */
+  }
+
+  /* 選択エリアを縦並びに */
+  .selection-area {
+    flex-direction: column;
+  }
+
+  .armor-panel {
+    border-right: none;
+    border-bottom: 2px solid #3a3a3a; /* 横線を消して下線を追加 */
+  }
+
+  .panel {
+    padding: 20px;
+  }
+
+  /* 結果エリアも縦並びに */
+  .result-area {
+    flex-direction: column;
+  }
+
+  .chance-card {
+    border-right: none;
+    border-bottom: 2px solid #3a3a3a;
+  }
+
+  /* スマホだと巨大すぎるので数字を調整 */
+  .chance-text {
+    font-size: 3em;
+  }
+
+  .ttk-text {
+    font-size: 2.2em;
+  }
+
+  .result-card {
+    padding: 20px;
+  }
+}
+
+/* --- 超小型デバイス用 (iPhone SEなど) --- */
+@media (max-width: 400px) {
+  header h1 {
+    font-size: 1.1em;
+  }
+  
+  .panel h2 {
+    font-size: 1em;
+  }
+}

@@ -1,0 +1,21 @@
+[
+  { "name": "9x19 Pst gzh", "caliber": "9x19", "damage": 54, "penetration": 20 },
+  { "name": "9x19 AP 6.3", "caliber": "9x19", "damage": 52, "penetration": 30 },
+  { "name": "9x19 PBP gzh", "caliber": "9x19", "damage": 52, "penetration": 39 },
+  { "name": "5.45 BT", "caliber": "5.45", "damage": 42, "penetration": 37 },
+  { "name": "5.45 BP", "caliber": "5.45", "damage": 45, "penetration": 45 },
+  { "name": "5.45 BS", "caliber": "5.45", "damage": 40, "penetration": 51 },
+  { "name": "5.45 Igolnik", "caliber": "5.45", "damage": 37, "penetration": 62 },
+  { "name": "5.56 M855", "caliber": "5.56", "damage": 52, "penetration": 30 },
+  { "name": "5.56 M856A1", "caliber": "5.56", "damage": 51, "penetration": 38 },
+  { "name": "5.56 M855A1", "caliber": "5.56", "damage": 46, "penetration": 44 },
+  { "name": "5.56 M995", "caliber": "5.56", "damage": 40, "penetration": 53 },
+  { "name": "7.62x39 PS", "caliber": "7.62x39", "damage": 57, "penetration": 35 },
+  { "name": "7.62x39 BP", "caliber": "7.62x39", "damage": 58, "penetration": 47 },
+  { "name": "7.62x51 M80", "caliber": "7.62x51", "damage": 80, "penetration": 41 },
+  { "name": "7.62x51 M62", "caliber": "7.62x51", "damage": 79, "penetration": 44 },
+  { "name": "7.62x51 M61", "caliber": "7.62x51", "damage": 70, "penetration": 64 },
+  { "name": "12/70 Magnum Buck", "caliber": "12G", "damage": 400, "penetration": 2 },
+  { "name": "12/70 Flechette", "caliber": "12G", "damage": 200, "penetration": 31 },
+  { "name": "12/70 AP-20", "caliber": "12G", "damage": 164, "penetration": 37 }
+]

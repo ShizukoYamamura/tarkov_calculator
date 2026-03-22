@@ -1,0 +1,44 @@
+<div class="calculator-container">
+  <div *ngIf="isLoading">データを読み込み中...</div>
+
+  <ng-container *ngIf="!isLoading">
+    <header>
+      <h1>EFT 弾薬＆アーマーシミュレーター</h1>
+    </header>
+
+    <div class="selection-area">
+      <div class="panel">
+        <h2>🛡️ 敵のアーマー</h2>
+        <select [(ngModel)]="selectedArmor">
+          <option *ngFor="let armor of armors" [ngValue]="armor">
+            Class {{ armor.classLevel }} : {{ armor.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="panel">
+        <h2>🔫 使用する弾薬</h2>
+        <select [(ngModel)]="selectedAmmo">
+          <option *ngFor="let ammo of ammos" [ngValue]="ammo">
+            {{ ammo.caliber }} - {{ ammo.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="result-area">
+      <div class="result-card">
+        <h3>初弾貫通確率</h3>
+        <p [style.color]="chanceColor" style="font-size: 2em; font-weight: bold;">
+          {{ penetrationChance }}%
+        </p>
+      </div>
+      <div class="result-card">
+        <h3>キルに必要な弾数 (胸部)</h3>
+        <p style="font-size: 1.8em; color: #e74c3c; font-weight: bold;">
+          {{ shotsToKillThorax }}
+        </p>
+      </div>
+    </div>
+  </ng-container>
+</div>

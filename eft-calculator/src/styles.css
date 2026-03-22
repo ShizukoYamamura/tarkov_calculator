@@ -1,0 +1,16 @@
+/* src/styles.css (グローバル設定) */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh; /* 画面の高さ一杯まで */
+  
+  /* ここで白い余白を完全に葬ります */
+  background-color: #0c0c0c !important; 
+  
+  /* 薄いグリッドテクスチャ */
+  background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
