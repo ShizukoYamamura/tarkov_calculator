@@ -1,0 +1,55 @@
+<div class="calculator-container">
+  <header>
+    <h1>FPS 弾薬＆アーマー貫通シミュレーター</h1>
+    <p>パッチ最新版対応：ワンクリックでTTKと貫通確率を計算</p>
+  </header>
+
+  <div class="selection-area">
+    <div class="panel armor-panel">
+      <h2>🛡️ 敵のアーマー</h2>
+      <select [(ngModel)]="selectedArmor">
+        <option *ngFor="let armor of armors" [ngValue]="armor">
+          Class {{ armor.classLevel }} : {{ armor.name }}
+        </option>
+      </select>
+      <div class="stats">
+        <p>防御クラス: <strong>{{ selectedArmor.classLevel }}</strong></p>
+      </div>
+    </div>
+
+    <div class="panel ammo-panel">
+      <h2>🔫 使用する弾薬</h2>
+      <select [(ngModel)]="selectedAmmo">
+        <option *ngFor="let ammo of ammos" [ngValue]="ammo">
+          {{ ammo.caliber }} - {{ ammo.name }}
+        </option>
+      </select>
+      <div class="stats">
+        <p>肉体ダメージ: <strong>{{ selectedAmmo.damage }}</strong></p>
+        <p>貫通力: <strong>{{ selectedAmmo.penetration }}</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="result-area">
+    <h2>📊 計算結果 (胸部 HP:85)</h2>
+    
+    <div class="result-card">
+      <h3>初弾貫通確率</h3>
+      <div class="progress-bar-container">
+        <div class="progress-bar" 
+             [style.width.%]="penetrationChance" 
+             [style.background-color]="chanceColor">
+        </div>
+      </div>
+      <p class="chance-text" [style.color]="chanceColor">
+        {{ penetrationChance }}%
+      </p>
+    </div>
+
+    <div class="result-card">
+      <h3>キルに必要な弾数 (TTK目安)</h3>
+      <p class="ttk-text">{{ shotsToKillThorax }}</p>
+    </div>
+  </div>
+</div>
